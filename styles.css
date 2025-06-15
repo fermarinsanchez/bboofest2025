@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    background-image: url('assets/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #EE7780; /* Color de respaldo en caso de que la imagen no cubra */
+    padding: 20px 0; /* Añadimos padding vertical */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/background.png');
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 20px 0; /* Añadimos padding vertical */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0; /* Añadimos padding vertical */
+}
+
+.lettering {
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.subtitle {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    max-width: 75%;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 100px;
+}
+
+.countdown-item span:first-child {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: #FECC16;
+}
+
+.countdown-item .label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    color: #FECC16;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 0; /* Aumentamos el padding en móviles */
+    }
+
+    .content {
+        padding: 40px 0; /* Aumentamos el padding en móviles */
+    }
+
+    .lettering {
+        max-width: 90%; /* Aumentamos el ancho máximo */
+        margin-top: 20px; /* Añadimos margen superior */
+    }
+
+    /* Subtitle */
+    .subtitle {
+        font-size: 28px;
+        padding: 1rem;
+        max-width: 90%; /* Aumentamos el ancho máximo */
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+        margin: 20px 0; /* Añadimos margen vertical */
+    }
+
+    /* Countdown */
+    .countdown {
+        gap: 1rem;
+        padding: 1.5rem;
+        margin: 1rem;
+        width: 90%; /* Añadimos ancho máximo */
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 2rem;
+    }
+    
+    .countdown-item .label {
+        font-size: 1rem;
+    }
+
+    /* Social Links */
+    .social-links {
+        gap: 1.5rem;
+        margin: 2rem 0 3rem 0; /* Ajustamos los márgenes */
+        width: 90%; /* Añadimos ancho máximo */
+    }
+
+    .social-link {
+        font-size: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 0; /* Ajustamos el padding para pantallas más pequeñas */
+    }
+
+    .content {
+        padding: 20px 0; /* Ajustamos el padding para pantallas más pequeñas */
+    }
+
+    .lettering {
+        max-width: 95%; /* Aumentamos aún más el ancho máximo */
+        margin-top: 10px;
+    }
+
+    /* Countdown */
+    .countdown {
+        gap: 0.5rem;
+        padding: 1rem;
+        width: 95%; /* Aumentamos el ancho máximo */
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 1.8rem;
+    }
+    
+    .countdown-item .label {
+        font-size: 0.9rem;
+    }
+
+    /* Social Links */
+    .social-links {
+        gap: 1rem;
+        margin: 1.5rem 0 2.5rem 0; /* Ajustamos los márgenes */
+        width: 95%; /* Aumentamos el ancho máximo */
+    }
+
+    .social-link {
+        font-size: 1.2rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-link {
+    color: #FECC16;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    color: #ffffff;
+    background: rgba(254, 204, 22, 0.2);
+} 
